@@ -135,20 +135,6 @@ jobs:
           path: |
             simple_live_app/build/ios/iphoneos/ios_no_sign.ipa
 
-      # 打包MAC
-      - name: Build MacOS
-        run: |
-          cd simple_live_app
-          flutter_distributor package --platform macos --targets dmg,zip --skip-clean
-      
-      # 上传MAC至Artifacts
-      - name: Upload MacOS to Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: mac
-          path: |
-            simple_live_app/build/dist/*/*.dmg
-            simple_live_app/build/dist/*/*.zip
       #完成
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
